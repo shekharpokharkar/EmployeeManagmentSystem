@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.seleniumexpress.Entity.Employee;
+import com.seleniumexpress.dto.EmployeeDTO;
 import com.seleniumexpress.service.EmployeeService;
 
 @RestController
@@ -25,21 +26,22 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	@PostMapping("/")
-	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
-		Employee saveEmployee = employeeService.saveEmployee(employee);
-		return new ResponseEntity<Employee>(saveEmployee, HttpStatus.OK);
+	public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employee) {
+		EmployeeDTO saveEmployee = employeeService.saveEmployee(employee);
+		return new ResponseEntity<EmployeeDTO>(saveEmployee, HttpStatus.OK);
 	}
 
 	@GetMapping("/")
-	public ResponseEntity<List<Employee>> getAllEmployee() {
-		List<Employee> saveEmployee = employeeService.findAll();
-		return new ResponseEntity<List<Employee>>(saveEmployee, HttpStatus.OK);
+	public ResponseEntity<List<EmployeeDTO>> getAllEmployee() {
+		List<EmployeeDTO> saveEmployee = employeeService.findAll();
+		return new ResponseEntity<List<EmployeeDTO>>(saveEmployee, HttpStatus.OK);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Integer employeeId, @RequestBody Employee employee) {
-		Employee updatedEmployee = employeeService.updateEmployee(employeeId, employee);
-		return new ResponseEntity<Employee>(updatedEmployee, HttpStatus.ACCEPTED);
+	public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable("id") Integer employeeId,
+			@RequestBody EmployeeDTO employee) {
+		EmployeeDTO updatedEmployee = employeeService.updateEmployee(employeeId, employee);
+		return new ResponseEntity<EmployeeDTO>(updatedEmployee, HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping("/{id}")
@@ -49,9 +51,9 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Employee> findEmployeeById(@PathVariable("id") Integer employeeId) {
-		Employee employee = employeeService.findById(employeeId);
-		return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+	public ResponseEntity<EmployeeDTO> findEmployeeById(@PathVariable("id") Integer employeeId) {
+		EmployeeDTO employee = employeeService.findById(employeeId);
+		return new ResponseEntity<EmployeeDTO>(employee, HttpStatus.OK);
 	}
 
 }

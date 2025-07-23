@@ -2,18 +2,18 @@ package com.seleniumexpress.service;
 
 import java.util.List;
 
-import com.seleniumexpress.Entity.Employee;
+import com.seleniumexpress.dto.EmployeeDTO;
 
 public interface EmployeeService {
 
 	void deleteEmployeeById(Integer employeeId);
 
-	Employee updateEmployee(Integer employeeId, Employee employee);
+	EmployeeDTO findById(Integer employeeId);
 
-	Employee saveEmployee(Employee employee);
+	List<EmployeeDTO> findAll();
 
-	Employee findById(Integer employeeId);
+	EmployeeDTO saveEmployee(EmployeeDTO employee);
 
-	List<Employee> findAll();
+	EmployeeDTO updateEmployee(Integer employeeId, EmployeeDTO employee);
 
 }

@@ -20,7 +20,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Employee_Test")
+@Table(name = "Employee_Rest")
 @Setter
 @Getter
 @AllArgsConstructor
@@ -32,16 +32,21 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Employee_Id")
 	private Integer employeeId;
+	
 	@Column(name = "Employee_Name")
 	private String employeeName;
+	
 	@Column(name = "Employee_Departmet")
 	private String employeeDepartment;
+	
 	@Column(name = "Employee_Married")
 	private Boolean married;
+	
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	@Column(name = "Employee_Joining_Date")
 	private LocalDate joiningDate;
+	
 	@Column(name = "Employee_Salary")
 	private Double employeeSalary;
 
